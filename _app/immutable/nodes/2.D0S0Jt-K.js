@@ -1,1 +1,0 @@
-import{a,t as p}from"../chunks/disclose-version.DA6AmP8y.js";import"../chunks/legacy.QVjyROj1.js";var e=p('<h1 class="text-3xl font-bold">TODO</h1>');function m(t){var o=e();a(t,o)}export{m as component};

@@ -1,1 +1,0 @@
-import{q as i,J as p,D as f,l as c,F as l,I as v,a5 as y}from"./runtime.CgsK0d0J.js";import{g as d,w as h}from"./index.Ch4edXz-.js";function b(s,o,...n){var r=s,e=v,a;i(()=>{e!==(e=o())&&(a&&(y(a),a=null),a=f(()=>e(r,...n)))},p),c&&(r=l)}const t=h([]),g=s=>t.set([...d(t),s]);export{t as a,g as o,b as s};

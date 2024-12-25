@@ -141,14 +141,20 @@ func (v *TreeVersionData) getGraph() (graph.Graph[int64, int64], map[int64]map[i
 				continue
 			}
 
-			_ = g.AddEdge(targetID, *node.Skill)
 			_ = g.AddEdge(*node.Skill, targetID)
+
+			// Most edges are bidirectional, but masteries are an exception;
+			// you can't use a mastery to travel between 2 notables in a cluster
+			if targetNode.IsMastery == nil || !*targetNode.IsMastery {
+				_ = g.AddEdge(targetID, *node.Skill)
+			}
 		}
 	}
 
 	v.graph = g
 
 	// We can pre-calculate the adjacency map, as the graph won't change
+	// (at least, until we add support for thread of hope/impossible escape/etc)
 	v.adjacencyMap, _ = v.graph.AdjacencyMap()
 
 	return v.graph, v.adjacencyMap

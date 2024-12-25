@@ -45,7 +45,8 @@ func (f *SearchState) Pop() any {
 // run when there are multiple shortest paths (this property is important to prevent
 // the skill tree UI from flip-flopping between options as users allocate nodes).
 //
-// Requires a single BFS of the tree. Time complexity: O(V + E)
+// Requires a single BFS of the tree, + a heap push/pop pair per node.
+// Time complexity: O(V * log(V) + E)
 func (v *TreeVersionData) CalculateAllocationPaths(activeNodes []int64, rootNodes []int64) map[int64]int64 {
 	_, adjacencyMap := v.getGraph()
 
